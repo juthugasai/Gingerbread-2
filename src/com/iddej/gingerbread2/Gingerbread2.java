@@ -50,9 +50,9 @@ public final class Gingerbread2 extends Game {
 	}
 
 	@Override
-	public void render(Graphics graphics) {
+	public void render(final Graphics graphics) {
 		Screen.setGraphics(graphics);
-		Screen.clear(window);
+		Screen.clear(this.window);
 	}
 
 	public static void main(final String[] args) {
