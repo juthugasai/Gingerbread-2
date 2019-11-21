@@ -118,4 +118,25 @@ public abstract class Game extends ThreadContainer {
 	public abstract void update(double delta);
 
 	public abstract void render(Graphics graphics);
+
+	@Override
+	public String getIdentifier() {
+		return super.getIdentifier();
+	}
+
+	public double getRefreshRate() {
+		return this.refreshRate;
+	}
+
+	public Keyboard getKeyboard() {
+		return this.keyboard;
+	}
+
+	public Mouse getMouse() {
+		return this.mouse;
+	}
+
+	public Window getWindow() {
+		return this.window;
+	}
 }
