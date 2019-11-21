@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 import com.iddej.gingerbread2.logging.GlobalLogger;
@@ -47,12 +48,9 @@ public final class Screen {
 		Screen.graphics.setFont(font);
 		Screen.graphics.setColor(color);
 		final FontMetrics fontMetrics = Screen.graphics.getFontMetrics();
-		final int totalWidth = (fontMetrics.stringWidth(string) * 2) + 4;
-		int x = (width - totalWidth) / 2;
-		int y = (height - fontMetrics.getHeight()) / 2;
-		Screen.graphics.setColor(Color.BLACK);
-		x += fontMetrics.stringWidth(string) + 2 + x0;
-		y = (height - (fontMetrics.getHeight() / 2)) + fontMetrics.getAscent() + y0;
+		final Rectangle2D rectangle2d = fontMetrics.getStringBounds(string, Screen.graphics);
+		final int x = (width - (int) rectangle2d.getWidth()) / 2;
+		final int y = ((height - (int) rectangle2d.getHeight()) / 2) + fontMetrics.getAscent();
 		Screen.graphics.drawString(string, x, y);
 	}
 }
