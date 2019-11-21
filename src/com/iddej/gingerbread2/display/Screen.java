@@ -1,6 +1,8 @@
 package com.iddej.gingerbread2.display;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -39,5 +41,20 @@ public final class Screen {
 			return;
 		}
 		Screen.graphics.drawImage(image, x, y, width, height, null);
+	}
+
+	public static final void drawCenteredString(final String string, final int x0, final int y0, final int width, final int height, final Font font, final Color color) {
+		Screen.graphics.setFont(font);
+		Screen.graphics.setColor(color);
+		Screen.graphics.setColor(Color.RED);
+		Screen.graphics.drawLine(0, height / 2, width, height / 2);
+		final FontMetrics fontMetrics = Screen.graphics.getFontMetrics();
+		final int totalWidth = (fontMetrics.stringWidth(string) * 2) + 4;
+		int x = (width - totalWidth) / 2;
+		int y = (height - fontMetrics.getHeight()) / 2;
+		Screen.graphics.setColor(Color.BLACK);
+		x += fontMetrics.stringWidth(string) + 2 + x0;
+		y = (height - (fontMetrics.getHeight() / 2)) + fontMetrics.getAscent() + y0;
+		Screen.graphics.drawString(string, x, y);
 	}
 }
