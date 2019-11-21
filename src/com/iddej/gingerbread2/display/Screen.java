@@ -46,8 +46,6 @@ public final class Screen {
 	public static final void drawCenteredString(final String string, final int x0, final int y0, final int width, final int height, final Font font, final Color color) {
 		Screen.graphics.setFont(font);
 		Screen.graphics.setColor(color);
-		Screen.graphics.setColor(Color.RED);
-		Screen.graphics.drawLine(0, height / 2, width, height / 2);
 		final FontMetrics fontMetrics = Screen.graphics.getFontMetrics();
 		final int totalWidth = (fontMetrics.stringWidth(string) * 2) + 4;
 		int x = (width - totalWidth) / 2;
