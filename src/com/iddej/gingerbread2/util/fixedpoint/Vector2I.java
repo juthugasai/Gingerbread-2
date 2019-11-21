@@ -1,7 +1,7 @@
 package com.iddej.gingerbread2.util.fixedpoint;
 
 public class Vector2I {
-	private int x, y;
+	public int x, y;
 
 	public Vector2I(final int x, final int y) {
 		this.x = x;
@@ -30,21 +30,5 @@ public class Vector2I {
 
 	public Vector2I normalize() {
 		return new Vector2I(this.x / this.length(), this.y / this.length());
-	}
-
-	public int getX() {
-		return this.x;
-	}
-
-	public int getY() {
-		return this.y;
-	}
-
-	public void setX(final int x) {
-		this.x = x;
-	}
-
-	public void setY(final int y) {
-		this.y = y;
 	}
 }
