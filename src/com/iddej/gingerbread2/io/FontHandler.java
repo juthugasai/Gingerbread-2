@@ -30,7 +30,7 @@ public final class FontHandler {
 		GlobalLogger.log(object, LogLevel.INFO, "Successfully loaded font from %s", path);
 	}
 
-	public static final Font retrieveImage(final Object object, final String identifier) {
+	public static final Font retrieveFont(final Object object, final String identifier) {
 		final Font font = FontHandler.fontsMap.get(identifier);
 		if (font == null) {
 			GlobalLogger.log(object, LogLevel.ERROR, "Couldn't retrieve font with id %s", identifier);
